@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
+import useBreedList from "./useBreedList";
 
 const ANIMALS = ["dog", "cat", "bird", "reptile", "rabbit"];
-const BREEDS = [];
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
+  const [breeds] = useBreedList(animal);
 
   useEffect(() => {
     requestPets();
   }, []);
-   
+
   async function requestPets() {
     const res = await fetch(
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
@@ -63,7 +64,7 @@ const SearchParams = () => {
           onBlur={(e) => setBreed(e.target.value)}
         >
           <option />
-          {BREEDS.map((breed) => (
+          {breeds.map((breed) => (
             <option value={breed} key={breed}>
               {breed}
             </option>
