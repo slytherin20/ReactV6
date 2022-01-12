@@ -1,10 +1,8 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Carousel from "./Carousel";
 class Details extends Component {
-  constructor() {
-    super();
-    this.state = { loading: true };
-  }
+  state = { loading: true };
 
   async componentDidMount() {
     let res = await fetch(
@@ -24,9 +22,11 @@ class Details extends Component {
     if (this.state.loading) {
       return <h2>Loading... Sit tight :)</h2>;
     }
-    const { name, animal, city, state, breed, description } = this.state;
+    const { name, animal, city, state, breed, description, images } =
+      this.state;
     return (
       <div className="details">
+        <Carousel images={images} />
         <h1>{animal}</h1>
         <h2>
           {breed}-{city},{state}
@@ -40,4 +40,4 @@ class Details extends Component {
 
 export default withRouter(Details); //in class components the router does not automatically passes props and
 //params to Details component. So, we use withRouter which is a HOC.
-//withRouter passes thre params to details here by doing this.
+//withRouter passes the params to details here by doing this.
