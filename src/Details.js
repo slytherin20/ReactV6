@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
 class Details extends Component {
   state = { loading: true };
 
@@ -38,6 +39,16 @@ class Details extends Component {
   }
 }
 
-export default withRouter(Details); //in class components the router does not automatically passes props and
+//export default withRouter(Details); //in class components the router does not automatically passes props and
 //params to Details component. So, we use withRouter which is a HOC.
 //withRouter passes the params to details here by doing this.
+
+let DetailsWithRouter = withRouter(Details);
+
+export default function DetailsWithErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter />
+    </ErrorBoundary>
+  );
+}
