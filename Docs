@@ -3,3 +3,5 @@ ComponentDidCatch(): when you are expecting errors in your application. Ex: when
 that a url is gonna return nothing or error as you are not puting any component there.
 
 HOC  = functions that include functionalities to add but does not display them.
+
+

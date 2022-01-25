@@ -1,8 +1,8 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class ErrorBoundary extends Component {
-  state = { hasError: false };
+  state = { hasError: false, redirect: false };
 
   static getDerivedStateFromError() {
     return { hasError: true };
@@ -10,10 +10,13 @@ class ErrorBoundary extends Component {
 
   componentDidCatch(err, msg) {
     console.log("Caught error:", err, "with message:", msg);
+    setTimeout(() => this.setState({ redirect: true }), 5000);
   }
 
   render() {
-    if (this.state.hasError) {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    } else if (this.state.hasError) {
       return (
         <h2>
           Error: <Link to="/">Click here</Link> to go back to home page.

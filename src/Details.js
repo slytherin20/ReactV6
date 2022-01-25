@@ -20,6 +20,7 @@ class Details extends Component {
     );
   }
   render() {
+    // throw new Error("hi all");
     if (this.state.loading) {
       return <h2>Loading... Sit tight :)</h2>;
     }
