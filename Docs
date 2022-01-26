@@ -10,3 +10,5 @@ Context is like a global value that is available throughtout our application lik
 Diff b/w state and Context:
 State: disappears when component is derendered.
 Context: Stays even if component is derendered because it is decalred in App at global level.
+
+Ref:  container for state that survives past render cycles.
