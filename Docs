@@ -5,3 +5,8 @@ that a url is gonna return nothing or error as you are not puting any component 
 HOC  = functions that include functionalities to add but does not display them.
 
 
+Context is like a global value that is available throughtout our application like the dark theme or light theme.
+
+Diff b/w state and Context:
+State: disappears when component is derendered.
+Context: Stays even if component is derendered because it is decalred in App at global level.
