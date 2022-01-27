@@ -5,10 +5,13 @@ that a url is gonna return nothing or error as you are not puting any component 
 HOC  = functions that include functionalities to add but does not display them.
 
 
-Context is like a global value that is available throughtout our application like the dark theme or light theme.
+Context is like a global value that is available throughtout our application like the dark theme or light theme. 
+Context is universally applicable. Eg: What user is logged in. so the user info is accessible throughout the application.
 
 Diff b/w state and Context:
 State: disappears when component is derendered.
 Context: Stays even if component is derendered because it is decalred in App at global level.
 
 Ref:  container for state that survives past render cycles.
+
+Portals can be used for contextual sidebars, contextual navbars apart from just modals.
